@@ -1,0 +1,282 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 210 40% 11%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 25% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 10% 92%;
+    --muted-foreground: 210 25% 35%;
+    --accent: 182 56% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 10% 85%;
+    --input: 210 10% 85%;
+    --ring: 182 56% 42%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-inter;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .page-section {
+    @apply opacity-0 translate-y-5;
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-[-4px] left-0 w-0 h-0.5 bg-white transition-all duration-300;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link.text-white.font-semibold::after {
+    @apply w-full;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-500;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+  
+  .hero-gradient {
+    background: linear-gradient(135deg, #0E1C2A 0%, #2C3E50 100%);
+  }
+  
+  .section-divider {
+    @apply w-[60px] h-0.5 bg-accent mx-auto mb-8;
+  }
+
+  .border-l-5 {
+    border-left-width: 5px;
+  }
+
+  .rtl {
+    direction: rtl;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #2FA4A9;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #268b8f;
+  }
+
+  /* Image loading and transitions */
+  img {
+    @apply transition-transform duration-500;
+  }
+
+  /* Smooth image loading */
+  img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  img[loading="lazy"].loaded {
+    opacity: 1;
+  }
+
+  /* Oil & Gas Themed Animations */
+  @keyframes oilFlow {
+    0% {
+      transform: translateX(-100%) translateY(0);
+      opacity: 0.3;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateX(100%) translateY(-20px);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes bubbleRise {
+    0% {
+      transform: translateY(0) scale(0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100vh) scale(1);
+      opacity: 0;
+    }
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(47, 164, 169, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(47, 164, 169, 0.6);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  @keyframes rotateSlow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .oil-flow {
+    animation: oilFlow 8s ease-in-out infinite;
+  }
+
+  .bubble-rise {
+    animation: bubbleRise 6s ease-in infinite;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .shimmer-effect {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .page-section {
+      animation-duration: 0.6s;
+    }
+    
+    /* Reduce particle animations on mobile */
+    .oil-flow,
+    .bubble-rise {
+      animation-duration: 12s;
+    }
+
+    /* Reduce hover effects on touch devices */
+    .card-hover:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Touch-friendly tap targets */
+  @media (max-width: 768px) {
+    button, a {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Mobile header specific fixes */
+    nav {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+  }
+
+  /* Prevent text overflow on mobile */
+  @media (max-width: 640px) {
+    .truncate {
+      max-width: 150px;
+    }
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .will-change-opacity {
+    will-change: opacity;
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .page-section {
+      animation-duration: 0.6s;
+    }
+  }
+}
