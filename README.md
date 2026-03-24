@@ -102,6 +102,45 @@ npm run preview
 - **Trading**: Product portfolio and trading capabilities
 - **Contact**: Contact form with validation
 
+## Contact Form Email Setup (PHP + SMTP)
+
+The contact form now posts to `contact.php`, which sends email to:
+
+- `ach@bluestoneenergy.energy`
+
+### Files Added
+
+- `contact.php` - Receives form data (`POST` JSON), validates input, and sends email using SMTP.
+- `mail_config.php` - SMTP credentials/settings file to edit before deployment.
+
+### SMTP Settings (Hostinger)
+
+- Outgoing server (SMTP): `smtp.hostinger.com`
+- Port: `465`
+- Encryption: `SSL`
+- Incoming server (IMAP): `imap.hostinger.com` (port `993`, SSL)
+- Incoming server (POP): `pop.hostinger.com` (port `995`, SSL)
+
+### Deployment Steps
+
+1. Build frontend:
+   ```bash
+   npm run build
+   ```
+2. Upload `dist` content to your hosting public folder.
+3. Upload `contact.php` and `mail_config.php` to the same public folder.
+4. Edit `mail_config.php` and set:
+   - `smtp_username`
+   - `smtp_password`
+   - `from_email`
+5. Ensure `from_email` is a mailbox authorized for your Hostinger SMTP account.
+6. Submit the Contact form from the live site and verify delivery to `ach@bluestoneenergy.energy`.
+
+### Notes
+
+- Keep `mail_config.php` on server only with real credentials; do not expose it to the frontend.
+- Local `npm run dev` does not execute PHP. Test email sending on PHP-enabled hosting/local PHP server.
+
 ### Animations
 - Smooth page transitions
 - Scroll-triggered animations
@@ -131,4 +170,4 @@ Edit the color scheme in `tailwind.config.js`:
 
 ## License
 
-© 2024 BlueStone Energy. All rights reserved.
+© 2026 BlueStone Energy. All rights reserved.

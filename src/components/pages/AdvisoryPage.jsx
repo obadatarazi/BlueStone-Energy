@@ -2,6 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Card } from '../ui/Card'
 import { TrendingUp, Map, Shield, FileText, Briefcase, Search, Settings, Users } from 'lucide-react'
+import InternationalEnergyAdvisoryImg from '../../assets/international energy advisory.png'
 
 export const AdvisoryPage = () => {
   const { t } = useLanguage()
@@ -87,16 +88,16 @@ export const AdvisoryPage = () => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-lg overflow-hidden shadow-2xl order-2 lg:order-1">
-                <img 
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Advisory Services" 
+                <img
+                  src={InternationalEnergyAdvisoryImg}
+                  alt="Advisory Services"
                   className="w-full h-[300px] object-cover"
                 />
               </div>
               <div className="order-1 lg:order-2">
-            <p className="text-xl leading-relaxed text-secondary">
-              {t('advisory_subtitle')}
-            </p>
+                <p className="text-xl leading-relaxed text-secondary">
+                  {t('advisory_subtitle')}
+                </p>
               </div>
             </div>
           </motion.div>

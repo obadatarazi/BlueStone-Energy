@@ -5,6 +5,14 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { TrendingUp, BarChart3, Globe, Fuel, Droplet, Zap, Factory } from 'lucide-react'
 import { OilParticles } from '../animations/OilParticles'
 import { AnimatedNumber } from '../animations/AnimatedNumber'
+import AdvisoryServicesImg from '../../assets/Advisory Services.png'
+import TradingActivitiesImg from '../../assets/Trading Activities.png'
+import GlobalReachImg from '../../assets/Global Reach.png'
+import CrudeOilImg from '../../assets/Crude Oil.png'
+import DieselImg from '../../assets/Diesel (EN590).png'
+import RefinedProductsImg from '../../assets/Refined Products.png'
+import IndustrialFuelImg from '../../assets/Industrial Fuel.png'
+import HeroSectionImg from '../../assets/Herosection.png'
 
 export const HomePage = ({ onNavigate }) => {
   const { t } = useLanguage()
@@ -90,9 +98,9 @@ export const HomePage = ({ onNavigate }) => {
       <section className="hero-gradient page-section py-20 md:py-32 text-center relative overflow-hidden">
         <OilParticles />
         <div className="absolute inset-0 opacity-20">
-          <motion.img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" 
-            alt="Oil and Gas Industry" 
+          <motion.img
+            src={HeroSectionImg}
+            alt="Oil and Gas Industry"
             className="w-full h-full object-cover"
             loading="eager"
             style={{ y: heroY, opacity: heroOpacity }}
@@ -180,9 +188,9 @@ export const HomePage = ({ onNavigate }) => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <div className="rounded-lg overflow-hidden shadow-2xl relative group">
-                <motion.img 
-                  src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop" 
-                  alt="Energy Industry" 
+                <motion.img
+                  src={HeroSectionImg}
+                  alt="Energy Industry"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.5 }}
@@ -197,9 +205,9 @@ export const HomePage = ({ onNavigate }) => {
       {/* Industry Presence */}
       <section className="page-section py-16 md:py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
-          <motion.svg 
-            width="100%" 
-            height="100%" 
+          <motion.svg
+            width="100%"
+            height="100%"
             xmlns="http://www.w3.org/2000/svg"
             animate={{ rotate: [0, 360] }}
             transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
@@ -236,13 +244,13 @@ export const HomePage = ({ onNavigate }) => {
                 key={index}
                 variants={itemVariants}
                 className="text-center"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   transition: { duration: 0.2 }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <motion.div 
+                <motion.div
                   className="text-4xl md:text-5xl font-bold text-white mb-2 pulse-glow"
                   initial={{ scale: 0, rotate: -180 }}
                   whileInView={{ scale: 1, rotate: 0 }}
@@ -254,13 +262,13 @@ export const HomePage = ({ onNavigate }) => {
                     delay: index * 0.1,
                   }}
                 >
-                  <AnimatedNumber 
-                    value={stat.value} 
+                  <AnimatedNumber
+                    value={stat.value}
                     duration={2.5}
                     delay={index * 0.15}
                   />
                 </motion.div>
-                <motion.p 
+                <motion.p
                   className="text-white/90 text-sm md:text-lg"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -288,15 +296,15 @@ export const HomePage = ({ onNavigate }) => {
             {services.map((service, index) => {
               const Icon = service.icon
               const serviceImages = [
-                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1000&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1000&auto=format&fit=crop',
+                AdvisoryServicesImg,
+                TradingActivitiesImg,
+                GlobalReachImg,
               ]
               return (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   variants={itemVariants}
-                  whileHover={{ 
+                  whileHover={{
                     y: -10,
                     transition: { duration: 0.3 }
                   }}
@@ -304,66 +312,66 @@ export const HomePage = ({ onNavigate }) => {
                 >
                   <Card hover className="h-full flex flex-col overflow-hidden p-0 group">
                     <div className="relative h-48 overflow-hidden">
-                    <motion.img 
-                      src={serviceImages[index]} 
-                      alt={t(service.titleKey)}
-                      className="w-full h-full object-cover gpu-accelerated"
-                      whileHover={{ scale: 1.15 }}
-                      whileTap={{ scale: 1.05 }}
-                      transition={{ duration: 0.5 }}
-                    />
+                      <motion.img
+                        src={serviceImages[index]}
+                        alt={t(service.titleKey)}
+                        className="w-full h-full object-cover gpu-accelerated"
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 1.05 }}
+                        transition={{ duration: 0.5 }}
+                      />
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent"></div>
-                  <motion.div 
-                    className="absolute top-4 left-4 w-12 h-12 md:w-15 md:h-15 bg-accent rounded-lg flex items-center justify-center pulse-glow"
-                    whileHover={{ 
-                      scale: 1.15,
-                      rotate: 360,
-                    }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ 
-                      duration: 0.5,
-                      rotate: { duration: 0.6 }
-                    }}
-                  >
-                    <motion.div
-                      animate={{ 
-                        rotate: [0, 10, -10, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
-                    </motion.div>
-                  </motion.div>
-                  {/* Shimmer effect */}
-                  <motion.div 
-                    className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100"
-                    transition={{ duration: 0.5 }}
-                  ></motion.div>
+                      <motion.div
+                        className="absolute top-4 left-4 w-12 h-12 md:w-15 md:h-15 bg-accent rounded-lg flex items-center justify-center pulse-glow"
+                        whileHover={{
+                          scale: 1.15,
+                          rotate: 360,
+                        }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{
+                          duration: 0.5,
+                          rotate: { duration: 0.6 }
+                        }}
+                      >
+                        <motion.div
+                          animate={{
+                            rotate: [0, 10, -10, 0],
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
+                        >
+                          <Icon className="w-6 h-6 md:w-8 md:h-8 text-white" />
+                        </motion.div>
+                      </motion.div>
+                      {/* Shimmer effect */}
+                      <motion.div
+                        className="absolute inset-0 shimmer-effect opacity-0 group-hover:opacity-100"
+                        transition={{ duration: 0.5 }}
+                      ></motion.div>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="font-playfair text-2xl font-semibold mb-4 text-primary">
-                      {t(service.titleKey)}
-                    </h3>
-                    <p className="text-base leading-relaxed text-secondary mb-6 flex-grow">
-                      {t(service.descriptionKey)}
-                    </p>
-                    {service.link && (
-                      <a
-                        href={`#${service.link}`}
-                        onClick={(e) => {
-                          e.preventDefault()
-                          onNavigate(service.link)
-                        }}
-                        className="text-accent font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all"
-                      >
-                        {t('learn_more')}
-                        <span>→</span>
-                      </a>
-                    )}
+                      <h3 className="font-playfair text-2xl font-semibold mb-4 text-primary">
+                        {t(service.titleKey)}
+                      </h3>
+                      <p className="text-base leading-relaxed text-secondary mb-6 flex-grow">
+                        {t(service.descriptionKey)}
+                      </p>
+                      {service.link && (
+                        <a
+                          href={`#${service.link}`}
+                          onClick={(e) => {
+                            e.preventDefault()
+                            onNavigate(service.link)
+                          }}
+                          className="text-accent font-semibold inline-flex items-center gap-2 hover:gap-3 transition-all"
+                        >
+                          {t('learn_more')}
+                          <span>→</span>
+                        </a>
+                      )}
                     </div>
                   </Card>
                 </motion.div>
@@ -398,7 +406,7 @@ export const HomePage = ({ onNavigate }) => {
                 key={index}
                 variants={itemVariants}
                 className="text-center p-4 rounded-lg hover:bg-muted/50 transition-colors duration-300 relative overflow-hidden group"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   y: -5,
                 }}
@@ -409,7 +417,7 @@ export const HomePage = ({ onNavigate }) => {
                   className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
-                <motion.h4 
+                <motion.h4
                   className="font-playfair text-xl md:text-2xl font-semibold text-accent mb-3 relative z-10"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -419,7 +427,7 @@ export const HomePage = ({ onNavigate }) => {
                 >
                   {t(value.titleKey)}
                 </motion.h4>
-                <motion.p 
+                <motion.p
                   className="text-sm md:text-base leading-relaxed text-secondary relative z-10"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -466,24 +474,24 @@ export const HomePage = ({ onNavigate }) => {
             {products.map((product, index) => {
               const Icon = product.icon
               const productImages = [
-                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop',
-                'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop',
+                CrudeOilImg,
+                DieselImg,
+                RefinedProductsImg,
+                IndustrialFuelImg,
               ]
               return (
                 <motion.div
                   key={index}
                   variants={itemVariants}
                   className="bg-white rounded-lg shadow-md border-t-4 border-accent overflow-hidden group hover:shadow-xl transition-shadow duration-300"
-                  whileHover={{ 
+                  whileHover={{
                     y: -8,
                     transition: { duration: 0.3 }
                   }}
                 >
                   <div className="relative h-40 md:h-48 overflow-hidden">
-                    <motion.img 
-                      src={productImages[index]} 
+                    <motion.img
+                      src={productImages[index]}
                       alt={t(product.titleKey)}
                       className="w-full h-full object-cover gpu-accelerated"
                       whileHover={{ scale: 1.2 }}
@@ -491,20 +499,20 @@ export const HomePage = ({ onNavigate }) => {
                       transition={{ duration: 0.5 }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
-                    <motion.div 
+                    <motion.div
                       className="absolute top-3 right-3 md:top-4 md:right-4 w-10 h-10 md:w-12 md:h-12 bg-accent/90 backdrop-blur-sm rounded-full flex items-center justify-center float-animation pulse-glow"
-                      whileHover={{ 
+                      whileHover={{
                         scale: 1.2,
                         rotate: 360,
                       }}
                       whileTap={{ scale: 0.9 }}
-                      transition={{ 
+                      transition={{
                         duration: 0.5,
                         rotate: { duration: 0.6 }
                       }}
                     >
                       <motion.div
-                        animate={{ 
+                        animate={{
                           rotate: [0, 15, -15, 0],
                         }}
                         transition={{

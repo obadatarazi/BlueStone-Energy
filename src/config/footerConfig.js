@@ -7,8 +7,8 @@ export const footerConfig = {
   },
   contact: {
     phone: "+1 (555) 123-4567",
-    email: "info@bluestoneenergy.com",
-    location: "123 Energy Plaza, Suite 1000, Houston, TX 77002, USA",
+    email: "ach@bluestoneenergy.energy",
+    location: "TX, Houston - Energy Corridor, 11111 Katy Freeway, Suite 910, Houston, Texas 77079, United States of America",
   },
   socialMedia: {
     linkedin: "https://www.linkedin.com/company/bluestone-energy",
@@ -16,7 +16,7 @@ export const footerConfig = {
     facebook: "https://www.facebook.com/bluestoneenergy",
     instagram: "https://www.instagram.com/bluestoneenergy",
   },
-  copyright: "© 2024 BlueStone Energy. All rights reserved.",
+  copyright: "© 2026 BlueStone Energy. All rights reserved.",
   quickLinks: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },

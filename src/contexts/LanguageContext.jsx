@@ -24,7 +24,7 @@ const translations = {
     hero_subheadline: "Trusted Insight. Disciplined Execution. Global Reach.",
     cta_button_text: "Contact Our Team",
     footer_tagline: "Strategic Energy Advisory & International Trading",
-    copyright: "© 2024 BlueStone Energy. All rights reserved.",
+    copyright: "© 2026 BlueStone Energy. All rights reserved.",
     about_title: "About BlueStone Energy",
     about_who_we_are: "Who We Are",
     about_vision: "Vision",
@@ -40,6 +40,7 @@ const translations = {
     form_phone: "Phone",
     form_message: "Message *",
     form_submit: "Send Message",
+    form_sending: "Sending...",
     form_success: "Thank you for your inquiry. A member of our team will respond within 24-48 business hours.",
     disclaimer: "Disclaimer: BlueStone Energy engages exclusively with qualified corporate, governmental, and institutional clients. Inquiries from individuals or entities seeking retail transactions will not receive a response. All communications are confidential and subject to our standard engagement terms.",
     // Home page content
@@ -106,7 +107,7 @@ const translations = {
     hero_subheadline: "رؤية موثوقة. تنفيذ منضبط. انتشار عالمي.",
     cta_button_text: "تواصل مع فريقنا",
     footer_tagline: "استشارات استراتيجية وتجارة دولية في قطاع الطاقة",
-    copyright: "© 2024 بلو ستون للطاقة. جميع الحقوق محفوظة.",
+    copyright: "© 2026 بلو ستون للطاقة. جميع الحقوق محفوظة.",
     about_title: "من نحن - بلو ستون للطاقة",
     about_who_we_are: "من نحن",
     about_vision: "الرؤية",
@@ -122,6 +123,7 @@ const translations = {
     form_phone: "الهاتف",
     form_message: "الرسالة *",
     form_submit: "إرسال الرسالة",
+    form_sending: "جاري الإرسال...",
     form_success: "شكرًا لاستفسارك. سيرد أحد أعضاء فريقنا خلال 24-48 ساعة عمل.",
     disclaimer: "تنويه: تتعامل بلو ستون للطاقة حصريًا مع العملاء المؤسسيين والحكوميين والمؤسسات المؤهلة. لن يتم الرد على الاستفسارات من الأفراد أو الكيانات التي تسعى إلى معاملات تجزئة. جميع الاتصالات سرية وتخضع لشروط التعامل القياسية لدينا.",
     // Home page content
@@ -194,8 +196,8 @@ export const LanguageProvider = ({ children }) => {
   useEffect(() => {
     document.documentElement.setAttribute('lang', language)
     document.body.classList.toggle('rtl', language === 'ar')
-    document.body.style.fontFamily = language === 'ar' 
-      ? "'IBM Plex Sans Arabic', sans-serif" 
+    document.body.style.fontFamily = language === 'ar'
+      ? "'IBM Plex Sans Arabic', sans-serif"
       : "'Inter', sans-serif"
   }, [language])
 

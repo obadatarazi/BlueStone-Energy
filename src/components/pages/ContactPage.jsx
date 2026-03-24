@@ -17,6 +17,8 @@ export const ContactPage = () => {
     message: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e) => {
     setFormData({
@@ -25,12 +27,27 @@ export const ContactPage = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setIsSubmitted(true)
-    
-    // Reset form after 5 seconds
-    setTimeout(() => {
+    setIsSubmitting(true)
+    setSubmitError('')
+    setIsSubmitted(false)
+
+    try {
+      const response = await fetch('/contact.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send message.')
+      }
+
+      setIsSubmitted(true)
       setFormData({
         name: '',
         company: '',
@@ -38,8 +55,11 @@ export const ContactPage = () => {
         phone: '',
         message: '',
       })
-      setIsSubmitted(false)
-    }, 5000)
+    } catch (error) {
+      setSubmitError(error.message || 'Unable to send message.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -175,9 +195,10 @@ export const ContactPage = () => {
 
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full text-lg py-4"
                 >
-                  {t('form_submit')}
+                  {isSubmitting ? t('form_sending') : t('form_submit')}
                 </Button>
 
                 {isSubmitted && (
@@ -188,6 +209,16 @@ export const ContactPage = () => {
                   >
                     <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
                     <p>{t('form_success')}</p>
+                  </motion.div>
+                )}
+
+                {submitError && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-6 p-4 bg-red-100 text-red-800 rounded-md"
+                  >
+                    <p>{submitError}</p>
                   </motion.div>
                 )}
               </form>
