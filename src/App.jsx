@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { LanguageProvider } from './contexts/LanguageContext'
 import { Navigation } from './components/Navigation'
@@ -9,21 +10,18 @@ import { AboutPage } from './components/pages/AboutPage'
 import { AdvisoryPage } from './components/pages/AdvisoryPage'
 import { TradingPage } from './components/pages/TradingPage'
 import { ContactPage } from './components/pages/ContactPage'
+import { AnasChbibPage } from './components/pages/AnasChbibPage'
 
-function App() {
+function MainSite() {
   const [currentPage, setCurrentPage] = useState('home')
 
   useEffect(() => {
-    // Handle hash navigation
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) || 'home'
       setCurrentPage(hash)
     }
 
-    // Check initial hash
     handleHashChange()
-
-    // Listen for hash changes
     window.addEventListener('hashchange', handleHashChange)
 
     return () => {
@@ -53,16 +51,25 @@ function App() {
   }
 
   return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Navigation currentPage={currentPage} onPageChange={handlePageChange} />
+      <main className="flex-grow">{renderPage()}</main>
+      <Footer />
+      <BackToTop />
+    </div>
+  )
+}
+
+function App() {
+  return (
     <ErrorBoundary>
       <LanguageProvider>
-        <div className="min-h-screen flex flex-col bg-white">
-          <Navigation currentPage={currentPage} onPageChange={handlePageChange} />
-          <main className="flex-grow">
-            {renderPage()}
-          </main>
-          <Footer />
-          <BackToTop />
-        </div>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/anaschbib" element={<AnasChbibPage />} />
+            <Route path="*" element={<MainSite />} />
+          </Routes>
+        </BrowserRouter>
       </LanguageProvider>
     </ErrorBoundary>
   )

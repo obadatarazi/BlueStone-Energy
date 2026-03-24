@@ -22,7 +22,7 @@ export const Button = ({
   return (
     <button
       className={cn(
-        "rounded-md font-semibold cursor-pointer tracking-wide",
+        "inline-flex items-center justify-center gap-2 rounded-md font-semibold cursor-pointer tracking-wide",
         variants[variant],
         sizes[size],
         className

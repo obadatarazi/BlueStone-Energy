@@ -17,7 +17,7 @@ const translations = {
       about: "About",
       advisory: "Advisory",
       trading: "Trading",
-      contact: "Contact"
+      contact: "Contact",
     },
     company_name: "BlueStone Energy",
     hero_headline: "Strategic Energy Advisory & International Trading",
@@ -93,6 +93,14 @@ const translations = {
     capabilities_title: "Capabilities",
     execution_title: "Trade Execution",
     execution_text: "BlueStone Energy manages every aspect of the transaction lifecycle, from initial inquiry through final delivery and settlement. Our operational discipline ensures predictable outcomes and minimizes execution risk for our counterparties.",
+    card_name: "Anas Chbib",
+    card_title: "CEO & Founder — BlueStone Energy",
+    card_call: "Call",
+    card_email: "Email",
+    card_download_vcard: "Download vCard",
+    card_photo_alt: "Anas Chbib",
+    card_linkedin_line: "Anas Chbib / LinkedIn",
+    card_x_line: "Anas Chbib / X",
   },
   ar: {
     nav: {
@@ -100,7 +108,7 @@ const translations = {
       about: "من نحن",
       advisory: "الاستشارات",
       trading: "التداول",
-      contact: "اتصل بنا"
+      contact: "اتصل بنا",
     },
     company_name: "بلو ستون للطاقة",
     hero_headline: "استشارات استراتيجية وتجارة دولية في قطاع الطاقة",
@@ -176,6 +184,14 @@ const translations = {
     capabilities_title: "القدرات",
     execution_title: "تنفيذ التجارة",
     execution_text: "تدير بلو ستون للطاقة كل جانب من جوانب دورة حياة المعاملة، من الاستفسار الأولي حتى التسليم النهائي والتسوية. يضمن انضباطنا التشغيلي نتائج يمكن التنبؤ بها ويقلل من مخاطر التنفيذ لأطرافنا المقابلة.",
+    card_name: "أنس شبيب",
+    card_title: "الرئيس التنفيذي والمؤسس — بلو ستون للطاقة",
+    card_call: "اتصال",
+    card_email: "بريد",
+    card_download_vcard: "تنزيل vCard",
+    card_photo_alt: "أنس شبيب",
+    card_linkedin_line: "أنس شبيب / LinkedIn",
+    card_x_line: "أنس شبيب / X",
   }
 }
 
