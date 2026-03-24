@@ -1,9 +1,27 @@
 <?php
 
+session_set_cookie_params([
+    'httponly' => true,
+    'samesite' => 'Strict',
+    'secure' => isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+]);
+session_start();
+
 header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
+if (!empty($_SERVER['HTTP_ORIGIN'])) {
+    header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
+}
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, X-CSRF-Token');
+header('Access-Control-Allow-Credentials: true');
+
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['csrf'])) {
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    echo json_encode(['success' => true, 'csrf_token' => $_SESSION['csrf_token']]);
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(204);
@@ -15,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(['success' => false, 'message' => 'Method not allowed.']);
     exit;
 }
+
+$csrfHeader = (string)($_SERVER['HTTP_X_CSRF_TOKEN'] ?? '');
+$csrfBody = '';
 
 $configPath = __DIR__ . '/mail_config.php';
 if (!file_exists($configPath)) {
@@ -34,6 +55,15 @@ if (!is_array($payload)) {
     exit;
 }
 
+$csrfBody = (string)($payload['csrf_token'] ?? '');
+$csrfToken = $csrfHeader !== '' ? $csrfHeader : $csrfBody;
+
+if (empty($_SESSION['csrf_token']) || $csrfToken === '' || !hash_equals($_SESSION['csrf_token'], $csrfToken)) {
+    http_response_code(403);
+    echo json_encode(['success' => false, 'message' => 'Invalid CSRF token.']);
+    exit;
+}
+
 function clean_text($value, $maxLen = 2000)
 {
     $text = trim((string)($value ?? ''));
@@ -46,6 +76,13 @@ $company = clean_text($payload['company'] ?? '', 180);
 $email = trim((string)($payload['email'] ?? ''));
 $phone = clean_text($payload['phone'] ?? '', 80);
 $message = clean_text($payload['message'] ?? '', 4000);
+$website = clean_text($payload['website'] ?? '', 200);
+
+if ($website !== '') {
+    http_response_code(200);
+    echo json_encode(['success' => true, 'message' => 'Message sent successfully.']);
+    exit;
+}
 
 if ($name === '' || $company === '' || $email === '' || $message === '') {
     http_response_code(422);

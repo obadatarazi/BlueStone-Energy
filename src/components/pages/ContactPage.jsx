@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Button } from '../ui/Button'
@@ -19,6 +19,26 @@ export const ContactPage = () => {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
+  const [csrfToken, setCsrfToken] = useState('')
+
+  useEffect(() => {
+    const loadCsrfToken = async () => {
+      try {
+        const response = await fetch('/contact.php?csrf=1', {
+          method: 'GET',
+          credentials: 'include',
+        })
+        const result = await response.json()
+        if (response.ok && result?.csrf_token) {
+          setCsrfToken(result.csrf_token)
+        }
+      } catch (error) {
+        // Keep quiet here; submit will surface actionable error.
+      }
+    }
+
+    loadCsrfToken()
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -34,12 +54,22 @@ export const ContactPage = () => {
     setIsSubmitted(false)
 
     try {
+      if (!csrfToken) {
+        throw new Error('Security token missing. Please refresh and try again.')
+      }
+
       const response = await fetch('/contact.php', {
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken,
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          csrf_token: csrfToken,
+          website: '',
+        }),
       })
 
       const result = await response.json()
