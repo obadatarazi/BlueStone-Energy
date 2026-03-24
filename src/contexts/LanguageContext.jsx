@@ -101,6 +101,10 @@ const translations = {
     card_photo_alt: "Anas Chbib",
     card_linkedin_line: "Anas Chbib / LinkedIn",
     card_x_line: "Anas Chbib / X",
+    card_meta_title: "Anas Chbib | BlueStone Energy",
+    card_meta_description:
+      "Digital business card for Anas Chbib, CEO & Founder of BlueStone Energy. Phone, email, LinkedIn, and X.",
+    card_lang_aria: "Switch language",
   },
   ar: {
     nav: {
@@ -192,6 +196,10 @@ const translations = {
     card_photo_alt: "أنس شبيب",
     card_linkedin_line: "أنس شبيب / LinkedIn",
     card_x_line: "أنس شبيب / X",
+    card_meta_title: "أنس شبيب | بلو ستون للطاقة",
+    card_meta_description:
+      "بطاقة تعارف رقمية لأنس شبيب، الرئيس التنفيذي والمؤسس لبلو ستون للطاقة. الهاتف، البريد، لينكد إن وX.",
+    card_lang_aria: "تغيير اللغة",
   }
 }
 

@@ -1,6 +1,8 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Phone, Mail, Linkedin, Twitter, Download } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useAnasPageMeta } from '@/hooks/useAnasPageMeta'
 import { Button } from '../ui/Button'
 import headshotUrl from '../../../Image/anas-chbib-768x904.jpg'
 
@@ -63,7 +65,19 @@ function NetworkPattern() {
 }
 
 export const AnasChbibPage = () => {
-  const { t } = useLanguage()
+  const { t, language, toggleLanguage } = useLanguage()
+  const [ogImageUrl, setOgImageUrl] = useState('')
+
+  useEffect(() => {
+    setOgImageUrl(new URL(headshotUrl, window.location.href).href)
+  }, [])
+
+  useAnasPageMeta({
+    title: t('card_meta_title'),
+    description: t('card_meta_description'),
+    imageAbsoluteUrl: ogImageUrl,
+    language,
+  })
 
   const rows = [
     {
@@ -97,7 +111,35 @@ export const AnasChbibPage = () => {
   ]
 
   return (
-    <div className="flex min-h-[100dvh] w-full flex-col bg-muted sm:min-h-screen sm:items-center sm:justify-center sm:py-16">
+    <div className="relative flex min-h-[100dvh] w-full flex-col bg-muted sm:min-h-screen sm:items-center sm:justify-center sm:py-16">
+      <div
+        className="fixed z-[100] flex items-center gap-0.5 rounded-full border border-white/20 bg-primary/90 px-1 py-0.5 text-[11px] font-semibold text-white shadow-md backdrop-blur-sm max-sm:top-[max(0.75rem,env(safe-area-inset-top))] max-sm:right-[max(0.75rem,env(safe-area-inset-right))] sm:right-6 sm:top-6"
+        role="group"
+        aria-label={t('card_lang_aria')}
+      >
+        <button
+          type="button"
+          onClick={() => language !== 'en' && toggleLanguage()}
+          className={`rounded-full px-2 py-1 transition-colors ${
+            language === 'en' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'
+          }`}
+        >
+          EN
+        </button>
+        <span className="text-white/35" aria-hidden>
+          |
+        </span>
+        <button
+          type="button"
+          onClick={() => language !== 'ar' && toggleLanguage()}
+          className={`rounded-full px-2 py-1 transition-colors ${
+            language === 'ar' ? 'bg-white/20 text-white' : 'text-white/60 hover:text-white'
+          }`}
+        >
+          AR
+        </button>
+      </div>
+
       <div className="mx-auto flex w-full max-w-full min-h-0 flex-1 flex-col sm:max-w-md sm:flex-none sm:px-6">
         <motion.article
           initial={{ opacity: 0, y: 16 }}
