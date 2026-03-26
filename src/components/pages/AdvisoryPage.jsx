@@ -4,52 +4,52 @@ import { Card } from '../ui/Card'
 import { TrendingUp, Map, Shield, FileText, Briefcase, Search, Settings, Users } from 'lucide-react'
 import InternationalEnergyAdvisoryImg from '../../assets/international energy advisory.png'
 
-export const AdvisoryPage = () => {
+export const AdvisoryPage = ({ mode = 'services' }) => {
   const { t } = useLanguage()
 
   const strategicServices = [
     {
       icon: TrendingUp,
-      title: 'Market Analysis & Intelligence',
-      description: 'Comprehensive market assessments, price forecasting, and geopolitical risk analysis to inform strategic decision-making.',
+      title: t('services_advisory_title'),
+      description: t('services_advisory_desc'),
     },
     {
       icon: Map,
-      title: 'Strategic Positioning',
-      description: 'Guidance on portfolio optimization, market entry strategies, and competitive positioning in evolving energy landscapes.',
+      title: t('commercial_title'),
+      description: t('services_trading_desc'),
     },
     {
       icon: Shield,
-      title: 'Risk Management',
-      description: 'Development and implementation of hedging strategies, supply security frameworks, and operational risk mitigation.',
+      title: t('investment_title'),
+      description: 'Deal structuring, due diligence, capital alignment',
     },
     {
       icon: FileText,
-      title: 'Regulatory & Compliance',
-      description: 'Navigation of international regulations, sanctions compliance, and trade documentation requirements.',
+      title: t('partnerships_title'),
+      description: 'Stakeholder engagement, consortium building',
     },
   ]
 
   const commercialServices = [
     {
       icon: Briefcase,
-      title: 'Transaction Structuring',
-      description: 'Design and negotiation of complex commercial agreements, joint ventures, and strategic partnerships.',
+      title: t('execution_enablement_title'),
+      description: 'Implementation support, delivery coordination',
     },
     {
       icon: Search,
-      title: 'Investment Strategy',
-      description: 'Due diligence support, asset valuation, and investment thesis development for energy sector opportunities.',
+      title: t('digital_ai_title'),
+      description: 'Smart energy systems, AI monitoring platforms, digital twins, cybersecurity, control systems',
     },
     {
       icon: Settings,
-      title: 'Commercial Optimization',
-      description: 'Enhancement of procurement strategies, contract negotiations, and supply chain efficiency.',
+      title: t('ai_driven_title'),
+      description: t('ai_driven_text'),
     },
     {
       icon: Users,
-      title: 'Market Access',
-      description: 'Facilitation of introductions, relationship development, and strategic partnership formation in key markets.',
+      title: t('integrated_energy_title'),
+      description: t('integrated_energy_text'),
     },
   ]
 

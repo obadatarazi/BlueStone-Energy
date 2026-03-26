@@ -4,44 +4,46 @@ import { Card } from '../ui/Card'
 import { CheckCircle2, Globe, DollarSign, Truck, FileCheck } from 'lucide-react'
 import TradingActivitiesImg from '../../assets/Trading Activities.png'
 
-export const TradingPage = () => {
+export const TradingPage = ({ mode = 'industries' }) => {
   const { t } = useLanguage()
 
   const products = [
     {
-      title: 'Crude Oil',
+      title: 'Oil & Gas',
       items: [
-        'Brent, WTI, Dubai Crude',
-        'Light & Heavy Grades',
-        'Sweet & Sour Varieties',
-        'Regional Benchmark Grades',
+        'Upstream',
+        'Midstream',
+        'Downstream',
       ],
     },
     {
-      title: 'Diesel (EN590)',
+      title: 'Power, Electricity & Water',
       items: [
-        'Ultra-Low Sulfur Diesel',
-        'EN590 10ppm Standard',
-        'Automotive Grade',
-        'Marine Gas Oil (MGO)',
+        'Generation',
+        'Grid',
+        'Desalination',
       ],
     },
     {
-      title: 'Refined Products',
+      title: 'Renewable Energy',
       items: [
-        'Gasoline (RON 91/95/97)',
-        'Jet Fuel (Jet A-1)',
-        'Naphtha & Condensate',
-        'Kerosene & LPG',
+        'Solar',
+        'Wind',
+        'Hybrid',
+        'Storage',
       ],
     },
     {
-      title: 'Industrial Fuel',
+      title: 'LNG & Gas Infrastructure',
       items: [
-        'Heavy Fuel Oil (HFO)',
-        'Marine Bunker Fuel',
-        'Power Generation Fuel',
-        'Custom Industrial Blends',
+        'Terminals',
+        'Regasification',
+      ],
+    },
+    {
+      title: 'Mining & Industrial Development',
+      items: [
+        'Resource to industry',
       ],
     },
   ]
@@ -49,23 +51,38 @@ export const TradingPage = () => {
   const capabilities = [
     {
       icon: Globe,
-      title: 'Global Sourcing',
-      description: 'Access to established producer relationships across major exporting regions, enabling reliable supply at competitive terms.',
+      title: 'Large-scale refinery projects',
+      description: 'Refinery development',
     },
     {
       icon: DollarSign,
-      title: 'Competitive Pricing',
-      description: 'Market-aligned pricing structures with transparent benchmarking and flexible payment terms tailored to client requirements.',
+      title: 'LNG and regasification',
+      description: 'LNG terminals and regasification infrastructure',
     },
     {
       icon: Truck,
-      title: 'Logistics Management',
-      description: 'Comprehensive execution across FOB, CIF, and delivered terms, including vessel chartering, insurance, and destination support.',
+      title: 'Pipeline development',
+      description: 'Pipeline and midstream infrastructure',
     },
     {
       icon: FileCheck,
-      title: 'Compliance & Documentation',
-      description: 'Full regulatory compliance, quality certificates, and complete documentation packages prepared to international standards.',
+      title: 'Power and water infrastructure',
+      description: 'Power generation and water projects',
+    },
+    {
+      icon: FileCheck,
+      title: 'Renewable energy',
+      description: 'Renewable integration and energy transition initiatives',
+    },
+    {
+      icon: FileCheck,
+      title: 'Oil field optimization',
+      description: 'Optimization and performance improvement programs',
+    },
+    {
+      icon: FileCheck,
+      title: 'Industrial projects',
+      description: 'Industrial and strategic infrastructure development',
     },
   ]
 

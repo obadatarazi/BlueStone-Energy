@@ -38,11 +38,17 @@ function MainSite() {
   const renderPage = () => {
     switch (currentPage) {
       case 'about':
-        return <AboutPage />
-      case 'advisory':
-        return <AdvisoryPage />
-      case 'trading':
-        return <TradingPage />
+        return <AboutPage mode="about" />
+      case 'why':
+        return <AboutPage mode="why" />
+      case 'services':
+        return <AdvisoryPage mode="services" />
+      case 'advisory': // backward-compat
+        return <AdvisoryPage mode="services" />
+      case 'industries':
+        return <TradingPage mode="industries" />
+      case 'trading': // backward-compat
+        return <TradingPage mode="industries" />
       case 'contact':
         return <ContactPage />
       default:

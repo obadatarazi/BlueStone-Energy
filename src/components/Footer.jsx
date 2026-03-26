@@ -85,7 +85,7 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-3">
               {footerConfig.quickLinks.map((link, index) => {
-                const navKey = link.label.toLowerCase()
+                const navKey = link.key
                 return (
                   <li key={index}>
                     <a

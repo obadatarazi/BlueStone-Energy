@@ -20,8 +20,9 @@ export const Navigation = ({ currentPage, onPageChange }) => {
   const navItems = [
     { id: 'home', label: t('nav.home') },
     { id: 'about', label: t('nav.about') },
-    { id: 'advisory', label: t('nav.advisory') },
-    { id: 'trading', label: t('nav.trading') },
+    { id: 'services', label: t('nav.services') },
+    { id: 'industries', label: t('nav.industries') },
+    { id: 'why', label: t('nav.why') },
     { id: 'contact', label: t('nav.contact') },
   ]
 

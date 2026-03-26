@@ -6,7 +6,7 @@ export const footerConfig = {
     tagline: "Strategic Energy Advisory & International Trading",
   },
   contact: {
-    phone: "+1 (555) 123-4567",
+    phone: "+1 XXX XXX XXXX",
     email: "ach@bluestoneenergy.energy",
     location: "TX, Houston - Energy Corridor, 11111 Katy Freeway, Suite 910, Houston, Texas 77079, United States of America",
   },
@@ -18,10 +18,11 @@ export const footerConfig = {
   },
   copyright: "© 2026 BlueStone Energy. All rights reserved.",
   quickLinks: [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Advisory", href: "#advisory" },
-    { label: "Trading", href: "#trading" },
-    { label: "Contact", href: "#contact" },
+    { key: "home", href: "#home" },
+    { key: "about", href: "#about" },
+    { key: "services", href: "#services" },
+    { key: "industries", href: "#industries" },
+    { key: "why", href: "#why" },
+    { key: "contact", href: "#contact" },
   ],
 }

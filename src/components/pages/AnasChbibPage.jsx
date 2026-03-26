@@ -23,7 +23,7 @@ function downloadVCard() {
     `TEL;TYPE=CELL,VOICE:${PHONE_TEL}`,
     `EMAIL;TYPE=WORK:${EMAIL}`,
     // `URL:${LINKEDIN}`,
-    `NOTE:X: ${X_URL}`,
+    // `NOTE:X: ${X_URL}`,
     'END:VCARD',
     '',
   ].join('\r\n')

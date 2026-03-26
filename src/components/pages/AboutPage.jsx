@@ -2,29 +2,32 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Shield, Target, Users, Award } from 'lucide-react'
 
-export const AboutPage = () => {
+export const AboutPage = ({ mode = 'about' }) => {
   const { t } = useLanguage()
+
+  const isWhyMode = mode === 'why'
+  const isTeamMode = mode === 'team'
 
   const values = [
     {
       icon: Shield,
-      title: 'Integrity',
-      description: 'We operate with transparency, honesty, and adherence to the highest ethical standards. Our word is our bond, and we honor our commitments without exception.',
+      title: t('value_integrity'),
+      description: t('value_integrity_desc'),
     },
     {
       icon: Target,
-      title: 'Discipline',
-      description: 'We approach every engagement with rigor, attention to detail, and a systematic methodology that ensures consistent, reliable outcomes.',
+      title: t('value_discipline'),
+      description: t('value_discipline_desc'),
     },
     {
       icon: Users,
-      title: 'Partnership',
-      description: 'We build long-term relationships based on mutual respect, aligned interests, and shared success. Your objectives become our objectives.',
+      title: t('value_partnership'),
+      description: t('value_partnership_desc'),
     },
     {
       icon: Award,
-      title: 'Excellence',
-      description: 'We deliver work of institutional quality, combining deep expertise with a commitment to continuous improvement and innovation in our field.',
+      title: t('value_excellence'),
+      description: t('value_excellence_desc'),
     },
   ]
 
@@ -42,7 +45,7 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             className="font-playfair text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
           >
-            {t('about_title')}
+            {isWhyMode ? t('why_bluestone_title') : isTeamMode ? t('nav.team') : t('about_title')}
           </motion.h1>
           <div className="section-divider"></div>
 
@@ -55,7 +58,7 @@ export const AboutPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
               <div>
                 <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-secondary">
-                  {t('about_who_we_are')}
+                  {isTeamMode ? t('nav.team') : t('about_who_we_are')}
                 </h2>
                 <p className="text-lg md:text-xl leading-relaxed text-foreground mb-6">
                   {t('about_who_text')}

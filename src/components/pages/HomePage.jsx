@@ -75,6 +75,16 @@ export const HomePage = ({ onNavigate }) => {
       titleKey: 'product_industrial_title',
       descriptionKey: 'product_industrial_desc',
     },
+    {
+      icon: Factory,
+      titleKey: 'product_industrial2_title',
+      descriptionKey: 'product_industrial2_desc',
+    },
+    {
+      icon: Globe,
+      titleKey: 'product_infra_title',
+      descriptionKey: 'product_infra_desc',
+    },
   ]
 
   const containerVariants = {
@@ -145,13 +155,23 @@ export const HomePage = ({ onNavigate }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button
-              size="lg"
-              onClick={() => onNavigate('contact')}
-              className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 pulse-glow"
-            >
-              {t('cta_button_text')}
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                size="lg"
+                onClick={() => onNavigate('contact')}
+                className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 pulse-glow"
+              >
+                {t('cta_button_text')}
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                onClick={() => onNavigate('services')}
+                className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 border-white/40 text-white hover:bg-white hover:text-primary"
+              >
+                {t('cta_button_secondary_text')}
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -478,6 +498,8 @@ export const HomePage = ({ onNavigate }) => {
                 DieselImg,
                 RefinedProductsImg,
                 IndustrialFuelImg,
+                IndustrialFuelImg,
+                GlobalReachImg,
               ]
               return (
                 <motion.div
