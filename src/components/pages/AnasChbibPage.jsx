@@ -9,8 +9,8 @@ import headshotUrl from '../../../Image/anas-chbib-768x904.jpg'
 const PHONE_DISPLAY = '+1 713 282 7648'
 const PHONE_TEL = '+17132827648'
 const EMAIL = 'ach@bluestoneenergy.energy'
-const LINKEDIN = 'https://www.linkedin.com/in/anaschbib'
-const X_URL = 'https://x.com/ChbibAnas'
+// const LINKEDIN = 'https://www.linkedin.com/in/anaschbib'
+// const X_URL = 'https://x.com/ChbibAnas'
 
 function downloadVCard() {
   const vcard = [
@@ -22,7 +22,7 @@ function downloadVCard() {
     'TITLE:CEO & Founder',
     `TEL;TYPE=CELL,VOICE:${PHONE_TEL}`,
     `EMAIL;TYPE=WORK:${EMAIL}`,
-    `URL:${LINKEDIN}`,
+    // `URL:${LINKEDIN}`,
     `NOTE:X: ${X_URL}`,
     'END:VCARD',
     '',
@@ -87,20 +87,20 @@ export const AnasChbibPage = () => {
       label: PHONE_DISPLAY,
       external: false,
     },
-    {
-      key: 'linkedin',
-      icon: Linkedin,
-      href: LINKEDIN,
-      label: t('card_linkedin_line'),
-      external: true,
-    },
-    {
-      key: 'x',
-      icon: Twitter,
-      href: X_URL,
-      label: t('card_x_line'),
-      external: true,
-    },
+    // {
+    //   key: 'linkedin',
+    //   icon: Linkedin,
+    //   href: LINKEDIN,
+    //   label: t('card_linkedin_line'),
+    //   external: true,
+    // },
+    // {
+    //   key: 'x',
+    //   icon: Twitter,
+    //   href: X_URL,
+    //   label: t('card_x_line'),
+    //   external: true,
+    // },
     {
       key: 'email',
       icon: Mail,
