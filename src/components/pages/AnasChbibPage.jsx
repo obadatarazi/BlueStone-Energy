@@ -5,9 +5,10 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { useAnasPageMeta } from '@/hooks/useAnasPageMeta'
 import { Button } from '../ui/Button'
 import headshotUrl from '../../../Image/anas-chbib-768x904.jpg'
+import { anasChbibPhone } from '@/config/contactInfo'
 
-const PHONE_DISPLAY = '+1 713 282 7648'
-const PHONE_TEL = '+17132827648'
+const PHONE_DISPLAY = anasChbibPhone.display
+const PHONE_TEL = anasChbibPhone.tel
 const EMAIL = 'ach@bluestoneenergy.energy'
 // const LINKEDIN = 'https://www.linkedin.com/in/anaschbib'
 // const X_URL = 'https://x.com/ChbibAnas'

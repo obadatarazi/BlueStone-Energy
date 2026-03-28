@@ -2,6 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
 import { footerConfig } from '@/config/footerConfig'
+import { Logo } from './Logo'
 
 export const Footer = () => {
   const { t, language } = useLanguage()
@@ -42,9 +43,21 @@ export const Footer = () => {
             viewport={{ once: true }}
             className="lg:col-span-1"
           >
-            <h3 className="font-playfair text-2xl md:text-3xl font-semibold mb-4 text-white">
-              {t('company_name')}
-            </h3>
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <a
+                href="#home"
+                onClick={(e) => {
+                  e.preventDefault()
+                  window.location.hash = 'home'
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+                className="inline-flex shrink-0 rounded-sm ring-offset-2 ring-offset-primary transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                aria-label={t('company_name')}
+              >
+                <Logo variant="onDark" alt="" aria-hidden className="h-10 md:h-11 w-auto shrink-0" />
+              </a>
+              <h3 className="sr-only">{t('company_name')}</h3>
+            </div>
             <p className="text-white/80 text-sm md:text-base leading-relaxed mb-6">
               {t('footer_tagline')}
             </p>
@@ -120,14 +133,17 @@ export const Footer = () => {
               {language === 'ar' ? 'اتصل بنا' : 'Contact Us'}
             </h4>
             <div className="space-y-4">
-              <motion.a
-                href={`tel:${footerConfig.contact.phone.replace(/\s/g, '')}`}
-                className="flex items-start gap-3 text-white/80 hover:text-accent transition-colors duration-300 group"
-                whileHover={{ x: 5 }}
-              >
-                <Phone className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
-                <span className="text-sm md:text-base">{footerConfig.contact.phone}</span>
-              </motion.a>
+              {footerConfig.contact.phones.map((phone) => (
+                <motion.a
+                  key={phone.tel}
+                  href={`tel:${phone.tel}`}
+                  className="flex items-start gap-3 text-white/80 hover:text-accent transition-colors duration-300 group"
+                  whileHover={{ x: 5 }}
+                >
+                  <Phone className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
+                  <span className="text-sm md:text-base">{phone.display}</span>
+                </motion.a>
+              ))}
 
               <motion.a
                 href={`mailto:${footerConfig.contact.email}`}

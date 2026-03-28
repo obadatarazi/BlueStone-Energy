@@ -1,12 +1,14 @@
 // Footer Configuration - Edit this file to update footer information easily
 
+import { anasChbibPhone } from './contactInfo'
+
 export const footerConfig = {
   company: {
     name: "BlueStone Energy",
     tagline: "Strategic Energy Advisory & International Trading",
   },
   contact: {
-    phone: "+1 XXX XXX XXXX",
+    phones: [anasChbibPhone],
     email: "ach@bluestoneenergy.energy",
     location: "TX, Houston - Energy Corridor, 11111 Katy Freeway, Suite 910, Houston, Texas 77079, United States of America",
   },

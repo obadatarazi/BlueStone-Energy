@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { Button } from './ui/Button'
+import { Logo } from './Logo'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -41,13 +42,19 @@ export const Navigation = ({ currentPage, onPageChange }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 flex justify-between items-center gap-2 sm:gap-4">
-        <motion.div 
-          className="font-playfair text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide flex-shrink-0 min-w-0"
-          whileHover={{ scale: 1.05 }}
+        <motion.a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault()
+            handleNavClick('home')
+          }}
+          aria-label={t('company_name')}
+          className="flex items-center flex-shrink-0 min-w-0"
+          whileHover={{ scale: 1.03 }}
           transition={{ duration: 0.2 }}
         >
-          <span className="truncate block">{t('company_name')}</span>
-        </motion.div>
+          <Logo variant="onDark" alt="" aria-hidden className="h-8 w-auto sm:h-9 md:h-10 shrink-0" />
+        </motion.a>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-12">
