@@ -4,6 +4,8 @@ import { Phone, Mail, Linkedin, Twitter, Download } from 'lucide-react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { useAnasPageMeta } from '@/hooks/useAnasPageMeta'
 import { Button } from '../ui/Button'
+import { Logo } from '../Logo'
+import { PhoneNumber } from '../ui/PhoneNumber'
 import headshotUrl from '../../../Image/anas-chbib-768x904.jpg'
 import { anasChbibPhone } from '@/config/contactInfo'
 
@@ -152,6 +154,10 @@ export const AnasChbibPage = () => {
             <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary to-secondary/90" />
             <NetworkPattern />
             <div className="relative z-10 flex flex-col items-center">
+              <Logo
+                variant="onDark"
+                className="mb-6 h-10 w-auto max-w-[min(100%,16rem)] object-contain object-center sm:h-11"
+              />
               <div className="mb-5 h-36 w-36 overflow-hidden rounded-full ring-4 ring-accent/50 ring-offset-4 ring-offset-primary">
                 <img
                   src={headshotUrl}
@@ -197,7 +203,7 @@ export const AnasChbibPage = () => {
                     <Icon className="h-5 w-5" aria-hidden />
                   </span>
                   <span className="min-w-0 flex-1 text-start text-sm font-medium text-secondary break-all sm:text-base">
-                    {label}
+                    {key === 'phone' ? <PhoneNumber value={label} /> : label}
                   </span>
                 </a>
               </li>

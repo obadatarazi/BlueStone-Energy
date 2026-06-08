@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
 import { footerConfig } from '@/config/footerConfig'
 import { Logo } from './Logo'
+import { PhoneNumber } from './ui/PhoneNumber'
 
 export const Footer = () => {
   const { t, language } = useLanguage()
@@ -141,7 +142,7 @@ export const Footer = () => {
                   whileHover={{ x: 5 }}
                 >
                   <Phone className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
-                  <span className="text-sm md:text-base">{phone.display}</span>
+                  <PhoneNumber value={phone.display} className="text-sm md:text-base" />
                 </motion.a>
               ))}
 
