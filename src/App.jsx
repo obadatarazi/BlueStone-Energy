@@ -11,6 +11,7 @@ import { AdvisoryPage } from './components/pages/AdvisoryPage'
 import { TradingPage } from './components/pages/TradingPage'
 import { ContactPage } from './components/pages/ContactPage'
 import { AnasChbibPage } from './components/pages/AnasChbibPage'
+import { KamiliaFawazPage } from './components/pages/KamiliaFawazPage'
 
 function MainSite() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -73,6 +74,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/anaschbib" element={<AnasChbibPage />} />
+            <Route path="/kamiliafawaz" element={<KamiliaFawazPage />} />
             <Route path="*" element={<MainSite />} />
           </Routes>
         </BrowserRouter>

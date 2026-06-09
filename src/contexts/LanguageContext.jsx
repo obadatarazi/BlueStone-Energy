@@ -158,6 +158,11 @@ const translations = {
     card_meta_description:
       "Digital business card for Anas Chbib, CEO & Founder of BlueStone Energy. Phone, email, LinkedIn, and X.",
     card_lang_aria: "Switch language",
+    kamilia_card_name: "Kamilia Ghada Fawaz",
+    kamilia_card_title: "BlueStone Energy",
+    kamilia_card_meta_title: "Kamilia Ghada Fawaz | BlueStone Energy",
+    kamilia_card_meta_description:
+      "Digital business card for Kamilia Ghada Fawaz at BlueStone Energy. Phone, email, and office address.",
   },
   ar: {
     nav: {
@@ -300,6 +305,11 @@ const translations = {
     card_meta_description:
       "بطاقة تعارف رقمية لأنس شبيب، الرئيس التنفيذي والمؤسس لبلو ستون للطاقة. الهاتف، البريد، لينكد إن وX.",
     card_lang_aria: "تغيير اللغة",
+    kamilia_card_name: "كاميليا غادة فواز",
+    kamilia_card_title: "بلو ستون للطاقة",
+    kamilia_card_meta_title: "كاميليا غادة فواز | بلو ستون للطاقة",
+    kamilia_card_meta_description:
+      "بطاقة تعارف رقمية لكاميليا غادة فواز في بلو ستون للطاقة. الهاتف، البريد، وعنوان المكتب.",
   }
 }
 

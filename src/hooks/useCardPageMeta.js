@@ -6,31 +6,29 @@ const DEFAULT_TITLE =
 function upsertMeta(attr, key, content) {
   const selector =
     attr === 'property'
-      ? `meta[data-anas-page][property="${key}"]`
-      : `meta[data-anas-page][name="${key}"]`
+      ? `meta[data-card-page][property="${key}"]`
+      : `meta[data-card-page][name="${key}"]`
   let el = document.head.querySelector(selector)
   if (!el) {
     el = document.createElement('meta')
     el.setAttribute(attr, key)
-    el.setAttribute('data-anas-page', '1')
+    el.setAttribute('data-card-page', '1')
     document.head.appendChild(el)
   }
   el.setAttribute('content', content)
 }
 
-function removeAnasMeta() {
-  document.querySelectorAll('meta[data-anas-page]').forEach((node) => node.remove())
+function removeCardMeta() {
+  document.querySelectorAll('meta[data-card-page]').forEach((node) => node.remove())
 }
 
-/**
- * Sets document title, html lang, and social/meta tags for /anaschbib; restores on unmount.
- */
-export function useAnasPageMeta({ title, description, imageAbsoluteUrl, language }) {
+/** Sets document title, html lang, and social/meta tags for digital card routes; restores on unmount. */
+export function useCardPageMeta({ title, description, imageAbsoluteUrl, language }) {
   useEffect(() => {
     return () => {
       document.title = DEFAULT_TITLE
       document.documentElement.lang = 'en'
-      removeAnasMeta()
+      removeCardMeta()
     }
   }, [])
 
