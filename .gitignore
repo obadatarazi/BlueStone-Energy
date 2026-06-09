@@ -11,6 +11,9 @@ node_modules
 dist-ssr
 *.local
 
+# Duplicate source uploads at repo root (canonical copies live in Image/)
+/Kamilia-Fawaz.jpg
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
