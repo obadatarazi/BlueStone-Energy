@@ -64,18 +64,18 @@ export const officeLocations = [
     imageAlt: 'Syria',
     offices: [
       {
-        labelKey: 'location_syria_deir',
-        lines: [
-          "Deir ez-Zor - Al-Qusour - Opposite Al-Ba'aj Mosque",
-        ],
-        mapsQuery: "Al-Qusour, Deir ez-Zor, Syria",
-      },
-      {
         labelKey: 'location_syria_damascus',
         lines: [
           'Damascus - Yafour - Gate 8 - Roya 4, 2nd Floor',
         ],
         mapsQuery: 'Yafour, Damascus, Syria',
+      },
+      {
+        labelKey: 'location_syria_deir',
+        lines: [
+          "Deir ez-Zor - Al-Qusour - Opposite Al-Ba'aj Mosque",
+        ],
+        mapsQuery: "Al-Qusour, Deir ez-Zor, Syria",
       },
     ],
   },

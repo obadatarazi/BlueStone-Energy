@@ -100,7 +100,7 @@ export const HomePage = ({ onNavigate }) => {
       {/* Hero Section */}
       <section className="hero-gradient page-section py-20 md:py-32 text-center relative overflow-hidden">
         <OilParticles />
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-75">
           <motion.img
             src={images.heroSection}
             alt="Oil and Gas Industry"
@@ -117,7 +117,7 @@ export const HomePage = ({ onNavigate }) => {
             }}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/45 via-primary/30 to-primary/50"></div>
         <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
           <motion.h1
             initial={{ opacity: 0, y: 30, scale: 0.9 }}
