@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { DigitalBusinessCard } from '../DigitalBusinessCard'
 import { kamiliaFawazContact } from '@/config/contactInfo'
-import headshotUrl from '../../../Image/kamilia-fawaz.jpg'
+import { images } from '@/config/images'
 
 export const KamiliaFawazPage = () => {
   const { t } = useLanguage()
@@ -11,7 +11,7 @@ export const KamiliaFawazPage = () => {
       patternId="kamiliaCardGrid"
       phone={kamiliaFawazContact.phone}
       email={kamiliaFawazContact.email}
-      photoUrl={headshotUrl}
+      photoUrl={images.kamiliaFawaz}
       photoAlt={t('kamilia_card_name')}
       name={t('kamilia_card_name')}
       title={t('kamilia_card_title')}

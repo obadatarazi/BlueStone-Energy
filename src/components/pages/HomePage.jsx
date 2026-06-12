@@ -5,14 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { TrendingUp, BarChart3, Globe, Fuel, Droplet, Zap, Factory } from 'lucide-react'
 import { OilParticles } from '../animations/OilParticles'
 import { AnimatedNumber } from '../animations/AnimatedNumber'
-import AdvisoryServicesImg from '../../assets/Advisory Services.png'
-import TradingActivitiesImg from '../../assets/Trading Activities.png'
-import GlobalReachImg from '../../assets/Global Reach.png'
-import CrudeOilImg from '../../assets/Crude Oil.png'
-import DieselImg from '../../assets/Diesel (EN590).png'
-import RefinedProductsImg from '../../assets/Refined Products.png'
-import IndustrialFuelImg from '../../assets/Industrial Fuel.png'
-import HeroSectionImg from '../../assets/Herosection.png'
+import { images } from '@/config/images'
 
 export const HomePage = ({ onNavigate }) => {
   const { t } = useLanguage()
@@ -109,7 +102,7 @@ export const HomePage = ({ onNavigate }) => {
         <OilParticles />
         <div className="absolute inset-0 opacity-20">
           <motion.img
-            src={HeroSectionImg}
+            src={images.heroSection}
             alt="Oil and Gas Industry"
             className="w-full h-full object-cover"
             loading="eager"
@@ -209,7 +202,7 @@ export const HomePage = ({ onNavigate }) => {
             >
               <div className="rounded-lg overflow-hidden shadow-2xl relative group">
                 <motion.img
-                  src={HeroSectionImg}
+                  src={images.heroSection}
                   alt="Energy Industry"
                   className="w-full h-[300px] md:h-[400px] object-cover"
                   whileHover={{ scale: 1.1 }}
@@ -316,9 +309,9 @@ export const HomePage = ({ onNavigate }) => {
             {services.map((service, index) => {
               const Icon = service.icon
               const serviceImages = [
-                AdvisoryServicesImg,
-                TradingActivitiesImg,
-                GlobalReachImg,
+                images.advisoryServices,
+                images.tradingActivities,
+                images.globalReach,
               ]
               return (
                 <motion.div
@@ -494,12 +487,12 @@ export const HomePage = ({ onNavigate }) => {
             {products.map((product, index) => {
               const Icon = product.icon
               const productImages = [
-                CrudeOilImg,
-                DieselImg,
-                RefinedProductsImg,
-                IndustrialFuelImg,
-                IndustrialFuelImg,
-                GlobalReachImg,
+                images.crudeOil,
+                images.diesel,
+                images.refinedProducts,
+                images.industrialFuel,
+                images.industrialFuel,
+                images.globalReach,
               ]
               return (
                 <motion.div

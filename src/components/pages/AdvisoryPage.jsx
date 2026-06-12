@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Card } from '../ui/Card'
 import { TrendingUp, Map, Shield, FileText, Briefcase, Search, Settings, Users } from 'lucide-react'
-import InternationalEnergyAdvisoryImg from '../../assets/international energy advisory.png'
+import { images } from '@/config/images'
 
 export const AdvisoryPage = ({ mode = 'services' }) => {
   const { t } = useLanguage()
@@ -89,7 +89,7 @@ export const AdvisoryPage = ({ mode = 'services' }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="rounded-lg overflow-hidden shadow-2xl order-2 lg:order-1">
                 <img
-                  src={InternationalEnergyAdvisoryImg}
+                  src={images.internationalEnergyAdvisory}
                   alt="Advisory Services"
                   className="w-full h-[300px] object-cover"
                 />

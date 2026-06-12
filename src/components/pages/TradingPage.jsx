@@ -2,7 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Card } from '../ui/Card'
 import { CheckCircle2, Globe, DollarSign, Truck, FileCheck } from 'lucide-react'
-import TradingActivitiesImg from '../../assets/Trading Activities.png'
+import { images } from '@/config/images'
 
 export const TradingPage = ({ mode = 'industries' }) => {
   const { t } = useLanguage()
@@ -127,7 +127,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
               </div>
               <div className="rounded-lg overflow-hidden shadow-2xl">
                 <img
-                  src={TradingActivitiesImg}
+                  src={images.tradingActivities}
                   alt="Trading Operations"
                   className="w-full h-[300px] object-cover"
                 />

@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { DigitalBusinessCard } from '../DigitalBusinessCard'
-import headshotUrl from '../../../Image/anas-chbib-768x904.jpg'
+import { images } from '@/config/images'
 import { anasChbibPhone } from '@/config/contactInfo'
 
 const EMAIL = 'ach@bluestoneenergy.energy'
@@ -13,7 +13,7 @@ export const AnasChbibPage = () => {
       patternId="anasCardGrid"
       phone={anasChbibPhone}
       email={EMAIL}
-      photoUrl={headshotUrl}
+      photoUrl={images.anasChbib}
       photoAlt={t('card_photo_alt')}
       name={t('card_name')}
       title={t('card_title')}

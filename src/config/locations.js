@@ -1,7 +1,4 @@
-import usaImage from '@/assets/locations/USA.jpeg'
-import koreaImage from '@/assets/locations/Korea.jpeg'
-import ksaImage from '@/assets/locations/KSA.jpeg'
-import syriaImage from '@/assets/locations/Syria.jpeg'
+import { images } from '@/config/images'
 
 export const officeLocations = [
   {
@@ -9,7 +6,7 @@ export const officeLocations = [
     countryKey: 'location_usa',
     cityKey: 'location_usa_city',
     footerShortKey: 'location_footer_usa',
-    image: usaImage,
+    image: images.locations.usa,
     imageAlt: 'Houston, Texas skyline',
     offices: [
       {
@@ -28,7 +25,7 @@ export const officeLocations = [
     countryKey: 'location_korea',
     cityKey: 'location_korea_city',
     footerShortKey: 'location_footer_korea',
-    image: koreaImage,
+    image: images.locations.korea,
     imageAlt: 'Seoul, Korea',
     offices: [
       {
@@ -45,7 +42,7 @@ export const officeLocations = [
     countryKey: 'location_ksa',
     cityKey: 'location_ksa_city',
     footerShortKey: 'location_footer_ksa',
-    image: ksaImage,
+    image: images.locations.ksa,
     imageAlt: 'Riyadh, Saudi Arabia',
     offices: [
       {
@@ -63,7 +60,7 @@ export const officeLocations = [
     countryKey: 'location_syria',
     cityKey: 'location_syria_city',
     footerShortKey: 'location_footer_syria',
-    image: syriaImage,
+    image: images.locations.syria,
     imageAlt: 'Syria',
     offices: [
       {
