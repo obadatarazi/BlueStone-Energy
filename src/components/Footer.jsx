@@ -2,6 +2,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
 import { footerConfig } from '@/config/footerConfig'
+import { officeLocations } from '@/config/locations'
 import { Logo } from './Logo'
 import { PhoneNumber } from './ui/PhoneNumber'
 
@@ -155,13 +156,20 @@ export const Footer = () => {
                 <span className="text-sm md:text-base break-all">{footerConfig.contact.email}</span>
               </motion.a>
 
-              <motion.div
-                className="flex items-start gap-3 text-white/80 group"
-                whileHover={{ x: 5 }}
-              >
+              <div className="flex items-start gap-3 text-white/80">
                 <MapPin className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" />
-                <span className="text-sm md:text-base leading-relaxed">{footerConfig.contact.location}</span>
-              </motion.div>
+                <div className="space-y-2 text-sm md:text-base leading-relaxed">
+                  <p className="font-semibold text-white">{t('footer_locations')}</p>
+                  <ul className="space-y-1.5">
+                    {officeLocations.map((location) => (
+                      <li key={location.id}>
+                        <span className="font-medium text-white/90">{t(location.countryKey)}</span>
+                        <span className="text-white/70"> — {t(location.footerShortKey)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>

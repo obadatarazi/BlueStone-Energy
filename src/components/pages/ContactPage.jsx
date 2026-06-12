@@ -6,6 +6,7 @@ import { Input } from '../ui/Input'
 import { Textarea } from '../ui/Textarea'
 import { Card } from '../ui/Card'
 import { CheckCircle2 } from 'lucide-react'
+import { LocationsSection } from '../LocationsSection'
 
 export const ContactPage = () => {
   const { t } = useLanguage()
@@ -102,25 +103,26 @@ export const ContactPage = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="max-w-4xl mx-auto px-8 relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="font-playfair text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
-          >
-            {t('contact_title')}
-          </motion.h1>
-          <div className="section-divider"></div>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl leading-relaxed text-center mb-16 text-secondary"
-          >
-            {t('contact_subtitle')}
-          </motion.p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="max-w-7xl mx-auto px-8 relative z-10">
+          <LocationsSection />
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-center mb-10"
+            >
+              <h1 className="font-playfair text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
+                {t('contact_title')}
+              </h1>
+              <div className="section-divider" />
+              <p className="text-base md:text-lg leading-relaxed text-secondary mt-4 max-w-2xl mx-auto">
+                {t('contact_subtitle')}
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
             <div className="lg:col-span-1">
               <div className="rounded-lg overflow-hidden shadow-xl h-full">
                 <img 
@@ -254,19 +256,20 @@ export const ContactPage = () => {
               </form>
             </Card>
           </motion.div>
-          </div>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="mt-16 p-8 bg-muted rounded-lg"
-          >
-            <p className="text-sm md:text-base leading-relaxed text-secondary text-center">
-              <strong>{t('disclaimer').split(':')[0]}:</strong>{' '}
-              {t('disclaimer').split(':').slice(1).join(':')}
-            </p>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="mt-16 p-8 bg-muted rounded-lg"
+            >
+              <p className="text-sm md:text-base leading-relaxed text-secondary text-center">
+                <strong>{t('disclaimer').split(':')[0]}:</strong>{' '}
+                {t('disclaimer').split(':').slice(1).join(':')}
+              </p>
+            </motion.div>
+          </div>
         </div>
       </section>
     </div>

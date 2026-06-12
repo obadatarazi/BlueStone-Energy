@@ -10,7 +10,6 @@ export const footerConfig = {
   contact: {
     phones: [anasChbibPhone],
     email: "ach@bluestoneenergy.energy",
-    location: "TX, Houston - Energy Corridor, 11111 Katy Freeway, Suite 910, Houston, Texas 77079, United States of America",
   },
   socialMedia: {
     linkedin: "https://www.linkedin.com/company/bluestone-energy",
