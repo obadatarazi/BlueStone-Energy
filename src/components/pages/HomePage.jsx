@@ -98,7 +98,7 @@ export const HomePage = ({ onNavigate }) => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="hero-gradient page-section py-20 md:py-32 text-center relative overflow-hidden">
+      <section className="hero-gradient page-section h-[400px] md:h-[600px] flex flex-col text-center relative overflow-hidden">
         <OilParticles />
         <div className="absolute inset-0 opacity-75">
           <motion.img
@@ -118,35 +118,28 @@ export const HomePage = ({ onNavigate }) => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/45 via-primary/30 to-primary/50"></div>
-        <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10">
-          <motion.h1
-            initial={{ opacity: 0, y: 30, scale: 0.9 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            className="font-playfair text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-wide will-change-transform"
-          >
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
+        <div className="relative z-10 h-full w-full">
+          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-4 md:px-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="max-w-5xl mx-auto font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-wide will-change-transform"
             >
-              {t('hero_headline')}
-            </motion.span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg sm:text-xl md:text-2xl text-white/90 font-light tracking-wide mb-8 md:mb-12 px-4"
-          >
-            {t('hero_subheadline')}
-          </motion.p>
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                {t('hero_headline')}
+              </motion.span>
+            </motion.h1>
+          </div>
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="absolute inset-x-0 bottom-0 px-4 md:px-8 pb-8 md:pb-12"
           >
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button
@@ -165,6 +158,70 @@ export const HomePage = ({ onNavigate }) => {
                 {t('cta_button_secondary_text')}
               </Button>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Hero Subheadline */}
+      <section className="page-section relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-primary/5">
+        <div className="absolute top-0 left-0 w-72 h-72 bg-accent/8 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/8 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" />
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+
+        <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-accent font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-5"
+          >
+            {t('company_name')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="w-15 h-0.5 bg-accent mx-auto mb-10"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 font-playfair text-7xl md:text-8xl text-accent/15 leading-none select-none"
+            >
+              &ldquo;
+            </span>
+            <p className="relative text-xl sm:text-2xl md:text-3xl text-primary font-playfair leading-relaxed md:leading-relaxed px-2 md:px-8">
+              {t('hero_subheadline')}
+            </p>
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-10 md:mt-12"
+          >
+            {[Fuel, Zap, Droplet, Factory, Globe].map((Icon, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white border border-primary/10 shadow-md flex items-center justify-center text-accent"
+              >
+                <Icon className="w-5 h-5" strokeWidth={1.75} />
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>
