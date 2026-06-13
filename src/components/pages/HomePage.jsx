@@ -4,7 +4,6 @@ import { Card } from '../ui/Card'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { TrendingUp, BarChart3, Globe, Fuel, Droplet, Zap, Factory } from 'lucide-react'
 import { OilParticles } from '../animations/OilParticles'
-import { AnimatedNumber } from '../animations/AnimatedNumber'
 import { images } from '@/config/images'
 
 export const HomePage = ({ onNavigate }) => {
@@ -12,13 +11,6 @@ export const HomePage = ({ onNavigate }) => {
   const { scrollYProgress } = useScroll()
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 200])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
-
-  const stats = [
-    { value: '150M+', labelKey: 'stats_barrels' },
-    { value: '35+', labelKey: 'stats_countries' },
-    { value: '$2B+', labelKey: 'stats_value' },
-    { value: '24/7', labelKey: 'stats_coverage' },
-  ]
 
   const services = [
     {
@@ -162,70 +154,6 @@ export const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Hero Subheadline */}
-      <section className="page-section relative py-16 md:py-24 overflow-hidden bg-gradient-to-br from-slate-50 via-white to-primary/5">
-        <div className="absolute top-0 left-0 w-72 h-72 bg-accent/8 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/8 rounded-full translate-x-1/3 translate-y-1/3 blur-3xl" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-
-        <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10 text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-accent font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-5"
-          >
-            {t('company_name')}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="w-15 h-0.5 bg-accent mx-auto mb-10"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
-          >
-            <span
-              aria-hidden="true"
-              className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 font-playfair text-7xl md:text-8xl text-accent/15 leading-none select-none"
-            >
-              &ldquo;
-            </span>
-            <p className="relative text-xl sm:text-2xl md:text-3xl text-primary font-playfair leading-relaxed md:leading-relaxed px-2 md:px-8">
-              {t('hero_subheadline')}
-            </p>
-          </motion.div>
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-10 md:mt-12"
-          >
-            {[Fuel, Zap, Droplet, Factory, Globe].map((Icon, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white border border-primary/10 shadow-md flex items-center justify-center text-accent"
-              >
-                <Icon className="w-5 h-5" strokeWidth={1.75} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* About Overview */}
       <section className="page-section py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
@@ -272,7 +200,7 @@ export const HomePage = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Industry Presence */}
+      {/* Core Capabilities */}
       <section className="page-section py-16 md:py-24 bg-primary relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <motion.svg
@@ -291,62 +219,75 @@ export const HomePage = ({ onNavigate }) => {
             <rect width="100%" height="100%" fill="url(#oil-pattern)" />
           </motion.svg>
         </div>
-        <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 md:px-8 relative z-10 text-center">
           <motion.h2
             variants={itemVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-semibold text-center mb-4 text-white"
+            className="font-playfair text-4xl md:text-5xl font-semibold mb-4 text-white"
           >
             {t('global_presence_title')}
           </motion.h2>
-          <div className="w-15 h-0.5 bg-accent mx-auto mb-12"></div>
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="w-15 h-0.5 bg-accent mx-auto mb-10"
+          />
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-accent font-semibold tracking-[0.2em] uppercase text-xs md:text-sm mb-5"
+          >
+            {t('company_name')}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-15 h-0.5 bg-accent/60 mx-auto mb-10"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+            className="relative"
+          >
+            <span
+              aria-hidden="true"
+              className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 font-playfair text-7xl md:text-8xl text-white/15 leading-none select-none"
+            >
+              &ldquo;
+            </span>
+            <p className="relative text-xl sm:text-2xl md:text-3xl text-white font-playfair leading-relaxed md:leading-relaxed px-2 md:px-8">
+              {t('hero_subheadline')}
+            </p>
+          </motion.div>
+
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-12 mt-12 md:mt-16"
+            viewport={{ once: true }}
+            className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-10 md:mt-12"
           >
-            {stats.map((stat, index) => (
+            {[Fuel, Zap, Droplet, Factory, Globe].map((Icon, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="text-center"
-                whileHover={{
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/10 border border-white/25 shadow-md flex items-center justify-center text-white backdrop-blur-sm"
               >
-                <motion.div
-                  className="text-4xl md:text-5xl font-bold text-white mb-2 pulse-glow"
-                  initial={{ scale: 0, rotate: -180 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 200,
-                    damping: 15,
-                    delay: index * 0.1,
-                  }}
-                >
-                  <AnimatedNumber
-                    value={stat.value}
-                    duration={2.5}
-                    delay={index * 0.15}
-                  />
-                </motion.div>
-                <motion.p
-                  className="text-white/90 text-sm md:text-lg"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {t(stat.labelKey)}
-                </motion.p>
+                <Icon className="w-5 h-5" strokeWidth={1.75} />
               </motion.div>
             ))}
           </motion.div>
