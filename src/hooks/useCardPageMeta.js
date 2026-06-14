@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 
-const DEFAULT_TITLE =
-  'BlueStone Energy - Strategic Energy Advisory & International Trading'
+const DEFAULT_TITLE = 'BlueStone Energy — Strategic Energy Advisory & International Trading'
 
 function upsertMeta(attr, key, content) {
   const selector =

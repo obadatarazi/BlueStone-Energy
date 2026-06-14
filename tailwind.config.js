@@ -46,9 +46,15 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        poppins: ['Poppins', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
         arabic: ['IBM Plex Sans Arabic', 'sans-serif'],
+      },
+      lineHeight: {
+        snug: '1.5',
+        normal: '1.65',
+        relaxed: '1.8',
+        loose: '2.1',
       },
       animation: {
         "fade-in-up": "fadeInUp 0.8s ease-out forwards",

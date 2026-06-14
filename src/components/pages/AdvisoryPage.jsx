@@ -75,7 +75,7 @@ export const AdvisoryPage = ({ mode = 'services' }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-playfair text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
+            className="font-poppins text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
           >
             {t('advisory_title')}
           </motion.h1>
@@ -109,7 +109,7 @@ export const AdvisoryPage = ({ mode = 'services' }) => {
             viewport={{ once: true }}
             className="mt-16 mb-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-8 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-8 text-secondary">
               {t('strategic_title')}
             </h2>
             <div className="grid gap-6">
@@ -145,7 +145,7 @@ export const AdvisoryPage = ({ mode = 'services' }) => {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-8 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-8 text-secondary">
               {t('commercial_title')}
             </h2>
             <div className="grid gap-6">

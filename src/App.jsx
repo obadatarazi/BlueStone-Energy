@@ -12,9 +12,11 @@ import { TradingPage } from './components/pages/TradingPage'
 import { ContactPage } from './components/pages/ContactPage'
 import { AnasChbibPage } from './components/pages/AnasChbibPage'
 import { KamiliaFawazPage } from './components/pages/KamiliaFawazPage'
+import { useSiteMeta } from './hooks/useSiteMeta'
 
 function MainSite() {
   const [currentPage, setCurrentPage] = useState('home')
+  useSiteMeta(currentPage)
 
   useEffect(() => {
     const handleHashChange = () => {

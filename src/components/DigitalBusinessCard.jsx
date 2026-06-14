@@ -169,12 +169,12 @@ export function DigitalBusinessCard({
                     className="h-full w-full object-cover object-top"
                   />
                 ) : (
-                  <span className="font-playfair text-4xl font-semibold text-white/90" aria-hidden>
+                  <span className="font-poppins text-4xl font-semibold text-white/90" aria-hidden>
                     {initials}
                   </span>
                 )}
               </div>
-              <h1 className="font-playfair text-3xl font-bold tracking-tight text-white sm:text-4xl">
+              <h1 className="font-poppins text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 {name}
               </h1>
               <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/85 sm:text-base">

@@ -43,7 +43,7 @@ export const AboutPage = ({ mode = 'about' }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-playfair text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
+            className="font-poppins text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
           >
             {isWhyMode ? t('why_bluestone_title') : isTeamMode ? t('nav.team') : t('about_title')}
           </motion.h1>
@@ -57,7 +57,7 @@ export const AboutPage = ({ mode = 'about' }) => {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
               <div>
-                <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-secondary">
+                <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-6 text-secondary">
                   {isTeamMode ? t('nav.team') : t('about_who_we_are')}
                 </h2>
                 <p className="text-lg md:text-xl leading-relaxed text-foreground mb-6">
@@ -83,7 +83,7 @@ export const AboutPage = ({ mode = 'about' }) => {
             transition={{ delay: 0.3 }}
             className="mt-16 mb-16 p-12 bg-muted rounded-lg"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-6 text-secondary">
               {t('about_vision')}
             </h2>
             <p className="text-lg md:text-xl leading-relaxed text-foreground italic">
@@ -97,7 +97,7 @@ export const AboutPage = ({ mode = 'about' }) => {
             transition={{ delay: 0.4 }}
             className="mt-16 mb-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-6 text-secondary">
               {t('about_mission')}
             </h2>
             <p className="text-lg md:text-xl leading-relaxed text-foreground">
@@ -111,7 +111,7 @@ export const AboutPage = ({ mode = 'about' }) => {
             transition={{ delay: 0.5 }}
             className="mt-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-8 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-8 text-secondary">
               {t('about_values')}
             </h2>
             <div className="grid gap-6">
@@ -132,7 +132,7 @@ export const AboutPage = ({ mode = 'about' }) => {
                         <Icon className="w-6 h-6 text-accent" />
                       </div>
                       <div>
-                        <h3 className="font-playfair text-2xl font-semibold mb-3 text-primary">
+                        <h3 className="font-poppins text-2xl font-semibold mb-3 text-primary">
                           {value.title}
                         </h3>
                         <p className="text-base md:text-lg leading-relaxed text-foreground">

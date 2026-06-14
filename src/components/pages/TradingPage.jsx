@@ -108,7 +108,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="font-playfair text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
+            className="font-poppins text-5xl md:text-6xl font-bold text-center mb-4 text-primary"
           >
             {t('trading_title')}
           </motion.h1>
@@ -142,7 +142,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
             viewport={{ once: true }}
             className="mt-16 mb-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-8 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-8 text-secondary">
               {t('portfolio_title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -152,7 +152,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
                   variants={itemVariants}
                   className="p-10 bg-primary rounded-lg border-l-5 border-accent"
                 >
-                  <h3 className="font-playfair text-2xl font-semibold mb-6 text-white">
+                  <h3 className="font-poppins text-2xl font-semibold mb-6 text-white">
                     {product.title}
                   </h3>
                   <ul className="space-y-3">
@@ -178,7 +178,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
             viewport={{ once: true }}
             className="mt-16 mb-16"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-8 text-secondary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-8 text-secondary">
               {t('capabilities_title')}
             </h2>
             <div className="grid gap-6">
@@ -213,7 +213,7 @@ export const TradingPage = ({ mode = 'industries' }) => {
             viewport={{ once: true }}
             className="mt-16 p-12 bg-muted rounded-lg text-center"
           >
-            <h2 className="font-playfair text-3xl md:text-4xl font-semibold mb-6 text-primary">
+            <h2 className="font-poppins text-3xl md:text-4xl font-semibold mb-6 text-primary">
               {t('execution_title')}
             </h2>
             <p className="text-lg md:text-xl leading-relaxed text-foreground max-w-3xl mx-auto">

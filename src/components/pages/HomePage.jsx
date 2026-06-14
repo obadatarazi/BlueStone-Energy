@@ -90,7 +90,7 @@ export const HomePage = ({ onNavigate }) => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="hero-gradient page-section h-[400px] md:h-[600px] flex flex-col text-center relative overflow-hidden">
+      <section className="hero-gradient page-section min-h-[520px] md:min-h-[680px] flex flex-col text-center relative overflow-hidden">
         <OilParticles />
         <div className="absolute inset-0 opacity-75">
           <motion.img
@@ -110,46 +110,42 @@ export const HomePage = ({ onNavigate }) => {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-primary/45 via-primary/30 to-primary/50"></div>
-        <div className="relative z-10 h-full w-full">
-          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 px-4 md:px-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="max-w-5xl mx-auto font-playfair text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight tracking-wide will-change-transform"
+        <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-8 md:gap-10 px-4 md:px-8 py-14 md:py-20">
+          <motion.h1
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="max-w-5xl font-poppins text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-snug md:leading-normal tracking-wide will-change-transform"
+          >
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
             >
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-              >
-                {t('hero_headline')}
-              </motion.span>
-            </motion.h1>
-          </div>
+              {t('hero_headline')}
+            </motion.span>
+          </motion.h1>
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="absolute inset-x-0 bottom-0 px-4 md:px-8 pb-8 md:pb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button
-                size="lg"
-                onClick={() => onNavigate('contact')}
-                className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 pulse-glow"
-              >
-                {t('cta_button_text')}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                onClick={() => onNavigate('services')}
-                className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 border-white/40 text-white hover:bg-white hover:text-primary"
-              >
-                {t('cta_button_secondary_text')}
-              </Button>
-            </div>
+            <Button
+              size="lg"
+              onClick={() => onNavigate('contact')}
+              className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 pulse-glow"
+            >
+              {t('cta_button_text')}
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              onClick={() => onNavigate('services')}
+              className="text-base md:text-lg px-8 md:px-12 py-3 md:py-4 border-white/40 text-white hover:bg-white hover:text-primary"
+            >
+              {t('cta_button_secondary_text')}
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -165,7 +161,7 @@ export const HomePage = ({ onNavigate }) => {
               viewport={{ once: true }}
               className="order-2 lg:order-1"
             >
-              <h2 className="font-playfair text-4xl md:text-5xl font-semibold mb-4 text-primary">
+              <h2 className="font-poppins text-4xl md:text-5xl font-semibold mb-4 text-primary">
                 {t('about_overview_title')}
               </h2>
               <div className="section-divider mb-6"></div>
@@ -225,7 +221,7 @@ export const HomePage = ({ onNavigate }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-semibold mb-4 text-white"
+            className="font-poppins text-4xl md:text-5xl font-semibold mb-4 text-white"
           >
             {t('global_presence_title')}
           </motion.h2>
@@ -264,11 +260,11 @@ export const HomePage = ({ onNavigate }) => {
           >
             <span
               aria-hidden="true"
-              className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 font-playfair text-7xl md:text-8xl text-white/15 leading-none select-none"
+              className="absolute -top-6 md:-top-8 left-1/2 -translate-x-1/2 font-poppins text-7xl md:text-8xl text-white/15 leading-none select-none"
             >
               &ldquo;
             </span>
-            <p className="relative text-xl sm:text-2xl md:text-3xl text-white font-playfair leading-relaxed md:leading-relaxed px-2 md:px-8">
+            <p className="relative text-xl sm:text-2xl md:text-3xl text-white font-poppins leading-relaxed md:leading-relaxed px-2 md:px-8">
               {t('hero_subheadline')}
             </p>
           </motion.div>
@@ -364,7 +360,7 @@ export const HomePage = ({ onNavigate }) => {
                       ></motion.div>
                     </div>
                     <div className="p-6 flex flex-col flex-grow">
-                      <h3 className="font-playfair text-2xl font-semibold mb-4 text-primary">
+                      <h3 className="font-poppins text-2xl font-semibold mb-4 text-primary">
                         {t(service.titleKey)}
                       </h3>
                       <p className="text-base leading-relaxed text-secondary mb-6 flex-grow">
@@ -400,7 +396,7 @@ export const HomePage = ({ onNavigate }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-semibold text-center mb-4 text-primary"
+            className="font-poppins text-4xl md:text-5xl font-semibold text-center mb-4 text-primary"
           >
             {t('why_bluestone_title')}
           </motion.h2>
@@ -429,7 +425,7 @@ export const HomePage = ({ onNavigate }) => {
                   transition={{ duration: 0.3 }}
                 />
                 <motion.h4
-                  className="font-playfair text-xl md:text-2xl font-semibold text-accent mb-3 relative z-10"
+                  className="font-poppins text-xl md:text-2xl font-semibold text-accent mb-3 relative z-10"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-50px" }}
@@ -461,7 +457,7 @@ export const HomePage = ({ onNavigate }) => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="font-playfair text-4xl md:text-5xl font-semibold text-center mb-4 text-primary"
+            className="font-poppins text-4xl md:text-5xl font-semibold text-center mb-4 text-primary"
           >
             {t('products_title')}
           </motion.h2>

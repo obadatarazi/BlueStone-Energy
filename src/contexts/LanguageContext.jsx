@@ -20,6 +20,10 @@ const translations = {
       why: "Why Blue Stone",
       contact: "Contact",
     },
+    site_title: "BlueStone Energy",
+    site_tagline: "Strategic Energy Advisory & International Trading",
+    site_description:
+      "BlueStone Energy LLC — strategic energy advisory and international oil & gas trading. Trusted insight, disciplined execution, global reach.",
     company_name: "BLUE STONE ENERGY LLC",
     hero_headline: "Enabling Energy, Infrastructure, and Industrial Projects in Strategic Markets",
     hero_subheadline:
@@ -195,6 +199,10 @@ const translations = {
       why: "لماذا بلو ستون",
       contact: "اتصل بنا",
     },
+    site_title: "بلو ستون للطاقة",
+    site_tagline: "الاستشارات الاستراتيجية للطاقة والتجارة الدولية",
+    site_description:
+      "بلو ستون للطاقة ذ.م.م — استشارات استراتيجية للطاقة وتجارة النفط والغاز الدولية. رؤى موثوقة، تنفيذ منضبط، ووصول عالمي.",
     company_name: "بلو ستون للطاقة ذ.م.م",
     hero_headline: "تمكين مشاريع الطاقة والبنية التحتية والصناعة في الأسواق الاستراتيجية",
     hero_subheadline:
@@ -373,6 +381,7 @@ export const LanguageProvider = ({ children }) => {
 
   useEffect(() => {
     document.documentElement.setAttribute('lang', language)
+    document.documentElement.setAttribute('dir', language === 'ar' ? 'rtl' : 'ltr')
     document.body.classList.toggle('rtl', language === 'ar')
     document.body.style.fontFamily = language === 'ar'
       ? "'IBM Plex Sans Arabic', sans-serif"

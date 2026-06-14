@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, Linkedin, Twitter, Facebook, Instagram } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
 import { footerConfig } from '@/config/footerConfig'
 import { officeLocations } from '@/config/locations'
 import { Logo } from './Logo'
@@ -8,13 +8,6 @@ import { PhoneNumber } from './ui/PhoneNumber'
 
 export const Footer = () => {
   const { t, language } = useLanguage()
-
-  const socialIcons = [
-    { icon: Linkedin, href: footerConfig.socialMedia.linkedin, label: 'LinkedIn' },
-    { icon: Twitter, href: footerConfig.socialMedia.twitter, label: 'Twitter' },
-    { icon: Facebook, href: footerConfig.socialMedia.facebook, label: 'Facebook' },
-    { icon: Instagram, href: footerConfig.socialMedia.instagram, label: 'Instagram' },
-  ]
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -64,26 +57,6 @@ export const Footer = () => {
               {t('footer_tagline')}
             </p>
             
-            {/* Social Media */}
-            <div className="flex gap-4">
-              {socialIcons.map((social, index) => {
-                const Icon = social.icon
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center transition-all duration-300"
-                    whileHover={{ scale: 1.1, rotate: 360 }}
-                    whileTap={{ scale: 0.9 }}
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-5 h-5 text-white" />
-                  </motion.a>
-                )
-              })}
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -95,7 +68,7 @@ export const Footer = () => {
             transition={{ delay: 0.1 }}
             className="lg:col-span-1"
           >
-            <h4 className="font-playfair text-xl font-semibold mb-4 text-white">
+            <h4 className="font-poppins text-xl font-semibold mb-4 text-white">
               {language === 'ar' ? 'روابط سريعة' : 'Quick Links'}
             </h4>
             <ul className="space-y-3">
@@ -131,7 +104,7 @@ export const Footer = () => {
             transition={{ delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <h4 className="font-playfair text-xl font-semibold mb-4 text-white">
+            <h4 className="font-poppins text-xl font-semibold mb-4 text-white">
               {language === 'ar' ? 'اتصل بنا' : 'Contact Us'}
             </h4>
             <div className="space-y-4">

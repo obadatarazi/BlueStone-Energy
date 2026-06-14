@@ -10,10 +10,10 @@ export const LocationCard = ({ location }) => {
       <img
         src={location.image}
         alt={location.imageAlt}
-        className="h-44 w-full object-cover"
+        className="h-44 w-full object-cover object-[center_5%]"
       />
       <div className="p-5">
-        <h3 className="font-playfair text-xl font-semibold text-primary">
+        <h3 className="font-poppins text-xl font-semibold text-primary">
           {t(location.countryKey)}
         </h3>
         <p className="mb-4 text-sm text-secondary">{t(location.cityKey)}</p>

@@ -113,7 +113,7 @@ export const ContactPage = () => {
               transition={{ delay: 0.2 }}
               className="text-center mb-10"
             >
-              <h1 className="font-playfair text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight">
+              <h1 className="font-poppins text-3xl md:text-4xl font-bold text-primary mb-4 leading-snug">
                 {t('contact_title')}
               </h1>
               <div className="section-divider" />
